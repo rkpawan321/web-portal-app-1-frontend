@@ -4,29 +4,27 @@ import { connect } from 'react-redux';
 import { IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
-import FilterListIcon from '@material-ui/icons/FilterList';
-import SortIcon from '@material-ui/icons/Sort';
-
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import AppsIcon from '@material-ui/icons/Apps';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import SelectAllIcon from '@material-ui/icons/SelectAll';
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import LanguageIcon from '@material-ui/icons/Language';
+import FilterNoneIcon from '@material-ui/icons/FilterNone';
 
 import { getAllProjects, resetGetAllProjects } from '../../../actions';
 
-const fieldOptions = [
-    'dashboard',
-    'app',
-];
-
-
 const sortOptions = [
-    'recent_first',
-    'recent_last',
+    'core',
+    'language',
+    'all_subjects',
 ];
 
 const filterOptions = [
     'on_track',
-    'deployed',
+    'delayed',
     'on_hold',
+    'all',
 ];
 
 
@@ -45,17 +43,17 @@ const useStyles = theme => ({
         height: '38px',
     },
     menuButtonPlaceholder: {
-        fontSize: '60%', marginRight: '20px', marginLeft: '-8px',
+        fontSize: '60%', marginRight: '20px', marginLeft: '-4px',
     }
 });
 
 class MenuBarOptions extends React.Component {
 
-    state = { field: 'dashboard', sort: 'recent_first', filter: 'on_track', anchorElField: null, anchorElSort: null, anchorElFilter: null }
+    state = { sort: 'all_subjects', filter: 'all', anchorElField: null, anchorElSort: null, anchorElFilter: null }
 
     getProjects = () => {
         this.props.resetGetAllProjects();
-        this.props.getAllProjects();
+        this.props.getAllProjects(this.state.sort, this.state.filter);
     };
 
     handleChange = (stateName, event) => {
@@ -77,55 +75,54 @@ class MenuBarOptions extends React.Component {
 
     setOption = (stateName, option) => {
         if (stateName === 'field') {
-            this.setState({ field: option, anchorElField: null, anchorElSort: null, anchorElFilter: null })
+            this.setState({ field: option, anchorElField: null, anchorElSort: null, anchorElFilter: null });
+            setTimeout(function () {
+                this.getProjects();
+            }.bind(this), 200);
         }
         if (stateName === 'sort') {
-            this.setState({ sort: option, anchorElField: null, anchorElSort: null, anchorElFilter: null })
+            this.setState({ sort: option, anchorElField: null, anchorElSort: null, anchorElFilter: null });
+            setTimeout(function () {
+                this.getProjects();
+            }.bind(this), 200);
         }
         if (stateName === 'filter') {
-            this.setState({ filter: option, anchorElField: null, anchorElSort: null, anchorElFilter: null })
+            this.setState({ filter: option, anchorElField: null, anchorElSort: null, anchorElFilter: null });
+            setTimeout(function () {
+                this.getProjects();
+            }.bind(this), 200);
         }
-        this.getProjects();
     };
-
-    renderFieldIcon = () => {
-        const { field } = this.state;
-        if (field === fieldOptions[0]) {
-            return <DashboardIcon color="primary" />
-        }
-        if (field === fieldOptions[1]) {
-            return <AppsIcon color="primary" />
-        }
-
-    }
 
     renderSortIcon = () => {
         const { sort } = this.state;
         if (sort === sortOptions[0]) {
-            return <SortIcon color="primary" />
+            return <EmojiObjectsIcon color="primary" />
         }
         if (sort === sortOptions[1]) {
-            return <SortIcon color="primary" style={{ transform: 'rotate(180deg)' }} />
+            return <LanguageIcon color="primary" />
+        } else {
+            return <FilterNoneIcon color="primary" />
         }
     }
 
     renderFilterIcon = () => {
         const { filter } = this.state;
         if (filter === filterOptions[0]) {
-            return <FilterListIcon color="primary" />
+            return <WorkOutlineIcon color="primary" />
         }
         if (filter === filterOptions[1]) {
-            return <FilterListIcon color="primary" style={{ transform: 'rotate(180deg)' }} />
+            return <HourglassEmptyIcon color="primary" />
         }
         if (filter === filterOptions[2]) {
-            return <FilterListIcon color="primary" style={{ transform: 'rotate(270deg)' }} />
+            return <ErrorOutlineIcon color="primary" />
+        }
+        if (filter === filterOptions[3]) {
+            return <SelectAllIcon color="primary" />
         }
     }
 
     renderIconsByState = (stateName) => {
-        if (stateName === 'field') {
-            return this.renderFieldIcon();
-        }
         if (stateName === 'sort') {
             return this.renderSortIcon();
         }
@@ -137,18 +134,15 @@ class MenuBarOptions extends React.Component {
 
 
     renderDesktopAndMobileView = () => {
-        const { anchorElField, anchorElSort, anchorElFilter } = this.state;
+        const { anchorElSort, anchorElFilter } = this.state;
         let open, currentAnchor;
         const { classes } = this.props;
         return (
             <>
 
-                {_.map(['field', 'sort', 'filter'], (item) => {
+                {_.map(['sort', 'filter'], (item) => {
                     let currentList;
                     switch (item) {
-                        case 'field':
-                            currentList = fieldOptions; open = Boolean(anchorElField); currentAnchor = anchorElField;
-                            break;
                         case 'sort':
                             currentList = sortOptions; open = Boolean(anchorElSort); currentAnchor = anchorElSort;
                             break;
@@ -156,7 +150,7 @@ class MenuBarOptions extends React.Component {
                             currentList = filterOptions; open = Boolean(anchorElFilter); currentAnchor = anchorElFilter;
                             break;
                         default:
-                            currentList = fieldOptions; open = Boolean(anchorElField); currentAnchor = anchorElField;
+                            currentList = sortOptions; open = Boolean(anchorElSort); currentAnchor = anchorElSort;
                     }
                     return (
                         <div className={classes.menuButton} key={item}>

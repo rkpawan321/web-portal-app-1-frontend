@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
@@ -60,9 +61,6 @@ const useStyles = theme => ({
 	},
 });
 
-
-
-
 function AppHeader(props) {
 	const { classes } = props;
 	const matches = useMediaQuery('(min-width:670px)');
@@ -74,7 +72,7 @@ function AppHeader(props) {
 					<div className={classes.leftContainer}>
 						<img src={byjusLogo} className={classes.byjusLogo} alt="byjus-logo" />
 						<Typography className={classes.appTitle}>
-							CBSE: Grade 5 Maths - Algebra
+							{_.toUpper('Operations App')}
 						</Typography>
 					</div>
 					<div className={classes.rightContainer}>

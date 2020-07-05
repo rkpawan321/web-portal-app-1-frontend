@@ -54,18 +54,18 @@ const useStyles = theme => ({
 function CardList(props) {
     const { classes } = props;
     const matches = useMediaQuery('(min-width:670px)');
-    const renderSingleCard = (project) => {
+    const renderSingleCard = (project, projectName) => {
         return (
             <Card className={matches ? classes.singleCardDesktop : classes.singleCardMobile}>
                 <CardContent >
                     <div className={classes.cardHeader}>
-                        <div className={classes.mainCardHeading}>{_.startCase(Object.keys(project)[0])}</div>
+                        <div className={classes.mainCardHeading}>{_.startCase(projectName)}</div>
                         <IconButton><MoreHorizIcon /></IconButton>
                     </div>
-                    {_.map(project[Object.keys(project)[0]], (projectRecord, i) => {
+                    {_.map(project, (projectRecord, i) => {
                         return (
                             <React.Fragment key={i}>
-                            <CardRecord matches={matches} projectRecord={projectRecord} projectStatus={Object.keys(project)[0]}/>
+                            <CardRecord matches={matches} projectRecord={projectRecord} projectStatus={projectName}/>
                             </React.Fragment>
                         )
                     })}
@@ -76,29 +76,11 @@ function CardList(props) {
     }
     return (
         <div className={matches ? classes.allCardsDesktop : classes.allCardsMobile}>
-            {_.map(props.projects, (project, i) => {
-                return <React.Fragment key={i}>{renderSingleCard(project)}</React.Fragment>
+            {_.map(Object.keys(props.projects), (project, i) => {
+                return !_.isEmpty(props.projects[project]) ? <React.Fragment key={i}>{renderSingleCard(props.projects[project], project)}</React.Fragment> : <> </>;
             })}
         </div>
     );
 }
-
-// const theme = createMuiTheme({ typography: { useNextVariants: true } });
-
-
-// class AppHeader extends React.Component {
-
-
-// 	renderRightSideDesktopView = () => {
-// 		const { classes, showBackButton = false, onBackClick } = this.props;
-// 		return (
-// 			
-// 		)
-// 	}
-// 	render() {
-// 		const { classes, showBackButton = false, onBackClick } = this.props;
-
-// 	}
-// };
 
 export default withStyles(useStyles, { withTheme: true })(CardList);

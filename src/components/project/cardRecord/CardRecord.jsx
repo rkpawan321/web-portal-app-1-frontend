@@ -5,7 +5,6 @@ import { Divider, Typography, IconButton } from '@material-ui/core';
 
 import { withStyles } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import Pawan from '../../../assets/logos/pawan_icon_photo.png';
 import useStyles from './style';
 import TodayIcon from '@material-ui/icons/Today';
 
@@ -35,7 +34,7 @@ class CardRecord extends React.Component {
 						<div className={matches ? classes.singleCardRecordBottomPartDesktopLeftPart : classes.singleCardRecordBottomPartMobileLeftPart}>
 							{_.map(projectRecord.instructors, (instructor, id) => {
 								return (
-									<img src={Pawan} className={classes.userAvatar} alt={id} key={id} />
+									<img src={`https://ui-avatars.com/api/?name=${instructor.name}`} className={classes.userAvatar} alt={id} key={id} />
 								)
 							})}
 							<IconButton className={classes.addPersonButton}>

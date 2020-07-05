@@ -15,7 +15,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router history={history}>
           <Switch>
-          <Route exact path='/' Component={HomeLayout} />
+            <Route exact path='/' component={HomeLayout} />
             <Route path='/home' component={HomeLayout} />
             <Route path='/search' component={HomeLayout} />
             <Route path='/project' component={ProjectLayout} />

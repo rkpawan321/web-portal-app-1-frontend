@@ -32,7 +32,6 @@ class Project extends React.Component {
 
 	render() {
 		const { classes, projects } = this.props;
-		console.log('projects', projects)
 		return (
 			<>
 				<AppHeader />

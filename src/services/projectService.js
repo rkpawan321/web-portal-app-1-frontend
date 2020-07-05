@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-async function getProjects () {
-  console.log('in services')
-  const url = `https://us-central1-web-dashboard-1.cloudfunctions.net/getProjects`;
+async function getProjects( sort, filter) {
+  const url = `https://us-central1-web-dashboard-1.cloudfunctions.net/api/projects?sort=${sort}&filter=${filter}`;
   const options = {
     method: 'GET',
     headers: {
@@ -17,5 +16,5 @@ async function getProjects () {
 };
 
 export const projectService = {
- getProjects
+  getProjects
 };

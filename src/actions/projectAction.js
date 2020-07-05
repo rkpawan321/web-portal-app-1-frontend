@@ -8,12 +8,10 @@ export const resetGetAllProjects = () => {
   };
 };
 
-export const getAllProjects = () => async (dispatch, getState) => {
-  console.log('okayyy')
+export const getAllProjects = ( sort, filter) => async (dispatch, getState) => {
   let response, data, projectsResponseErrorCode, projectError;
   try {
-    response = await projectService.getProjects();
-    console.log('responseresponse',response)
+    response = await projectService.getProjects( sort, filter);
     data = response.data;
   } catch (e) {
     projectsResponseErrorCode = e.response ? e.response.status : e;
