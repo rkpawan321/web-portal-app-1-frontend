@@ -3,10 +3,15 @@
 Coding Challenge 
 
 Submitted By :
+
 Name :  Pawan R K
+
 Phone : +91 9482234279
+
 Mail: rkpawan321@gmail.com
+
 LinkedIn : https://www.linkedin.com/in/pawan-rk-44479488/
+
 RESUME : https://drive.google.com/file/d/16FciXGa7OJM8wwUXpdbRk9tw2_yiEhpW/view?usp=sharing
 
 *******************************************************************************************************************
@@ -18,7 +23,9 @@ PROBLEM STATEMENT :  Prototype feature of Project Board  of the operations app.
 Hosted at : https://capable-quanta-282412.df.r.appspot.com/project
 
 Github Links
+
 Frontend : https://github.com/rkpawan321/web-portal-app-1-frontend
+
 Backend: https://github.com/rkpawan321/web-portal-app-1-backend
 
 
