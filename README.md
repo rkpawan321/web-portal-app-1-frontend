@@ -27,9 +27,13 @@ Backend: https://github.com/rkpawan321/web-portal-app-1-backend
 FRONTEND ARCHITECTURE
 
 Language used : Javascript
+
 Tech Stack: ReactJs
+
 Libraries used:  Redux, Axios. Redux-persist, Lodash
+
 Middleware used : Redux-Thunk
+
 Design: CSS, Material Design, Media query
 
 *******************************************************************************************************************
