@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-import { Divider, Typography, IconButton } from '@material-ui/core';
+import { Divider, Typography, IconButton, Tooltip } from '@material-ui/core';
 
 import { withStyles } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
@@ -34,22 +34,30 @@ class CardRecord extends React.Component {
 						<div className={matches ? classes.singleCardRecordBottomPartDesktopLeftPart : classes.singleCardRecordBottomPartMobileLeftPart}>
 							{_.map(projectRecord.instructors, (instructor, id) => {
 								return (
-									<img src={`https://ui-avatars.com/api/?name=${instructor.name}`} className={classes.userAvatar} alt={id} key={id} />
+									<Tooltip title={instructor.name} key={id} >
+									<img src={`https://ui-avatars.com/api/?name=${instructor.name}`} className={classes.userAvatar} alt={id} />
+									</Tooltip>
 								)
 							})}
+							<Tooltip title={'Add Instructor'}>
 							<IconButton className={classes.addPersonButton}>
 								<AddCircleIcon color="primary" />
 							</IconButton>
+							</Tooltip>
 
 						</div>
 						<div className={classes.singleCardRecordBottomPartRightPart}>
+						<Tooltip title={'Assigned on'}>
 							<div className={classes.dateBox}>
 								<TodayIcon color="primary" fontSize="small" />
 								{`${projectRecord.assigned_date}`}
 							</div>
+							</Tooltip>
+							<Tooltip title={'Progress'}>
 							<div className={classes.percentageBox}>
 								{`${projectRecord.progress}%`}
 							</div>
+							</Tooltip>
 
 						</div>
 					</div>

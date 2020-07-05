@@ -77,7 +77,7 @@ function CardList(props) {
     return (
         <div className={matches ? classes.allCardsDesktop : classes.allCardsMobile}>
             {_.map(Object.keys(props.projects), (project, i) => {
-                return !_.isEmpty(props.projects[project]) ? <React.Fragment key={i}>{renderSingleCard(props.projects[project], project)}</React.Fragment> : <> </>;
+                return !_.isEmpty(props.projects[project]) ? <React.Fragment key={i}>{renderSingleCard(props.projects[project], project)}</React.Fragment> : <React.Fragment key={i}> </React.Fragment>;
             })}
         </div>
     );
