@@ -20,18 +20,12 @@ const useStyles = theme => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'purple',
-
 		width: '70px',
-
-
 		left: '0px',
 		position: 'fixed',
-		overflowY: 'scroll',
 		height: 'calc(100% - 64px)',
-
 	},
 	menuButton: {
-
 		width: '100%',
 		height: '70px',
 		marginLeft: '8px',
@@ -65,7 +59,7 @@ const useStyles = theme => ({
 
 class LeftNavigationBar extends React.Component {
 
-	state = { selectedMenu:  (_.split(this.props.location.pathname, '/'))[1] };
+	state = { selectedMenu: (_.split(this.props.location.pathname, '/'))[1] };
 
 	renderMenuIcon = (option) => {
 		switch (option) {

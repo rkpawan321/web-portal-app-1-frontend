@@ -1,26 +1,11 @@
 const useStyles = () => ({
   landingPageContainer: {
-    // display: "flex",
-    // flexDirection: "column",
     marginTop: "65px",
-    // height: 'calc(100vh - 26px)',
-    // marginLeft: '-70px',
-    // width: 'calc(100vw - 70px)',
-    // position: 'fixed',
-    // left: '70px',
     height: '(100vh - 70px)',
     backgroundColor: 'white',
-    // position: 'fixed',
-    // paddingRight: '500px',
     overflowY: 'hidden',
     marginLeft: '70px',
     padding: '20px',
-
-    // left: '0%'
-    // zIndex: '0',
-    // backgroundColor: 'red',
-    // borderColor: 'blue',
-
   },
   
 
@@ -62,7 +47,6 @@ const useStyles = () => ({
     flexDirection: 'column',
     justifyContent: 'start',
     alignItems: 'center',
-    // overflow: 'auto',
     height: '500px',
   },
   landingIcon: {

@@ -17,22 +17,19 @@ const useStyles = theme => ({
 		left: '70px',
 		position: 'fixed',
 		marginRight: '40px',
+		paddingTop: '10px',
+		paddingBottom: '10px',
 		zIndex: 1,
 	},
 	menuList: {
-		display: 'flex',
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'start',
-		padding: '20px',
-		overflowX: 'scroll',
-		width: '72%',
+		padding: '12px',
 	},
 	currentMenuName: {
 		fontFamily: 'Manrope-Regular',
 		paddingLeft: '8px',
 		paddingRight: '8px',
 		paddingBottom: '2px',
+		fontSize: 'calc(0.6em + 0.8vmin)',
 	},
 	viewOptionSelector: {
 		display: 'flex',
@@ -59,7 +56,7 @@ function MenuHeader(props) {
 				<div className={classes.menuList}>
 
 
-					<div className={classes.currentMenuName} style={{ borderBottom: '1.5px solid #823587', color: '#000000', fontSize: '80%' }}>
+					<div className={classes.currentMenuName} style={{ borderBottom: '1.5px solid #823587', color: '#000000'}}>
 						{_.startCase(props.location.pathname, '/')}
 					</div>
 

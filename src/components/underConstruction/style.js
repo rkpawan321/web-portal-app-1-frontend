@@ -46,7 +46,6 @@ const useStyles = () => ({
     flexDirection: 'column',
     justifyContent: 'start',
     alignItems: 'center',
-    // overflow: 'auto',
     height: '500px',
   },
   landingIcon: {

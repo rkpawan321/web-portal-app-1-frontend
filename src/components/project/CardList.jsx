@@ -10,19 +10,16 @@ import CardRecord from './cardRecord';
 
 const useStyles = theme => ({
     singleCardMobile: {
-        marginTop: '20px',
+        marginTop: '50px',
         fontFamily: 'Manrope-Bold',
         backgroundColor: '#F7F7FA',
-        fontSize: '15px',
         height: '100%',
         width: '97%',
-        overflowX: 'scroll',
     },
     singleCardDesktop: {
-        margin: '20px',
+        marginTop: '50px ',
         fontFamily: 'Manrope-Bold',
         backgroundColor: '#F7F7FA',
-        fontSize: '15px',
         height: '100%',
         width: '30%',
     },
@@ -34,7 +31,8 @@ const useStyles = theme => ({
         flexDirection: 'row',
     },
     mainCardHeading: {
-        color: '#000000'
+        color: '#000000',
+        fontSize: 'calc(0.75em + 1vmin)',
     },
     allCardsDesktop: {
         display: 'flex',
@@ -53,7 +51,7 @@ const useStyles = theme => ({
 
 function CardList(props) {
     const { classes } = props;
-    const matches = useMediaQuery('(min-width:670px)');
+    const matches = useMediaQuery('(min-width:720px)');
     const renderSingleCard = (project, projectName) => {
         return (
             <Card className={matches ? classes.singleCardDesktop : classes.singleCardMobile}>
