@@ -22,7 +22,7 @@ class UnderConstruction extends React.Component {
 				<LeftNavigation history={this.props.history} location={this.props.location}/>
 				<Box className={classes.landingPageContainer}>
 					<WarningIcon color="primary"/>
-					<Typography style={{ color: '#cbcbcb', fontSize: '30px', margin: '70px'}}>Page under construction</Typography>
+					<Typography style={{ color: '#cbcbcb', 	fontSize: 'calc(0.6em + 0.8vmin)', margin: '70px'}}>Page under construction</Typography>
 				</Box>
 				<Fab color="primary" size="small" aria-label="person" style={{position: 'fixed', bottom: '15px', right: '15px'}}>
 						<PersonIcon style={{color: 'white'}}/>
