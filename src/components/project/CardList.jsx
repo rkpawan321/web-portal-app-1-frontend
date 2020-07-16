@@ -10,14 +10,21 @@ import CardRecord from './cardRecord';
 
 const useStyles = theme => ({
     singleCardMobile: {
-        marginTop: '50px',
+        marginTop: '65px',
+        fontFamily: 'Manrope-Bold',
+        backgroundColor: '#F7F7FA',
+        height: '100%',
+        width: '97%',
+    },
+    singleCardMobileLessThan500: {
+        marginTop: '105px',
         fontFamily: 'Manrope-Bold',
         backgroundColor: '#F7F7FA',
         height: '100%',
         width: '97%',
     },
     singleCardDesktop: {
-        marginTop: '50px ',
+        marginTop: '65px ',
         fontFamily: 'Manrope-Bold',
         backgroundColor: '#F7F7FA',
         height: '100%',
@@ -52,9 +59,10 @@ const useStyles = theme => ({
 function CardList(props) {
     const { classes } = props;
     const matches = useMediaQuery('(min-width:720px)');
+    const matches500 = useMediaQuery('(min-width:500px)');
     const renderSingleCard = (project, projectName) => {
         return (
-            <Card className={matches ? classes.singleCardDesktop : classes.singleCardMobile}>
+            <Card className={matches ? classes.singleCardDesktop : matches500 ? classes.singleCardMobile : classes.singleCardMobileLessThan500}>
                 <CardContent >
                     <div className={classes.cardHeader}>
                         <div className={classes.mainCardHeading}>{_.startCase(projectName)}</div>

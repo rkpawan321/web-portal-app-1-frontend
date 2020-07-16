@@ -32,18 +32,32 @@ const ITEM_HEIGHT = 48;
 
 const useStyles = theme => ({
 
-
+    optionContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
     menuButton: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
     },
+    menuButtonLessThan500: {
+        marginTop: '-15px',
+        marginBottom: '-30px',
+        display: 'flex',
+        flexDirection: 'row',
+    },
     menuIcon: {
         width: '38px',
         height: '38px',
     },
-    menuButtonPlaceholder: {
+    menuButtonPlaceholderLessThan500: {
         fontSize: '60%', marginRight: '20px', marginLeft: '-4px',
+    },
+    menuButtonPlaceholder: {
+        fontSize: '60%', marginRight: '20px', marginLeft: '-4px', marginTop: '17px',
     }
 });
 
@@ -136,9 +150,10 @@ class MenuBarOptions extends React.Component {
     renderDesktopAndMobileView = () => {
         const { anchorElSort, anchorElFilter } = this.state;
         let open, currentAnchor;
-        const { classes } = this.props;
+        const { classes, matches500, matchesLessOrEqualTo500 } = this.props;
+        console.log('matchesLessOrEqualTo500', matchesLessOrEqualTo500)
         return (
-            <>
+            <div className={classes.optionContainer}>
 
                 {_.map(['sort', 'filter'], (item) => {
                     let currentList;
@@ -153,7 +168,7 @@ class MenuBarOptions extends React.Component {
                             currentList = sortOptions; open = Boolean(anchorElSort); currentAnchor = anchorElSort;
                     }
                     return (
-                        <div className={classes.menuButton} key={item}>
+                        <div className={matches500 ? classes.menuButton : classes.menuButtonLessThan500} key={item}>
                             <IconButton onClick={(event) => this.handleChange(item, event)}>
                                 {this.renderIconsByState(item)}
 
@@ -177,16 +192,16 @@ class MenuBarOptions extends React.Component {
                                 ))}
                             </Menu>
 
-                            {this.props.matches ?
+                            {this.props.matches || this.props.matchesLessOrEqualTo500 ?
                                 <div style={{ textAlign: 'left', width: '70px' }}>
-                                    <Typography className={classes.menuButtonPlaceholder}>
+                                    <Typography className={this.props.matchesLessOrEqualTo500 ? classes.menuButtonPlaceholder : classes.menuButtonPlaceholderLessThan500}>
                                         {_.startCase(this.state[item])}
                                     </Typography>
                                 </div> : <> </>}
                         </div>
                     )
                 })}
-            </>
+            </div>
         )
     }
     render() {

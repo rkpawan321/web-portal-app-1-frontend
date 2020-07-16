@@ -20,14 +20,14 @@ const useStyles = theme => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'purple',
-		width: '70px',
+		width: '50px',
 		left: '0px',
 		position: 'fixed',
-		height: 'calc(100% - 64px)',
+		height: '100%',
 	},
 	menuButton: {
 		width: '100%',
-		height: '70px',
+		height: '45px',
 		marginLeft: '8px',
 		borderTopLeftRadius: '6px',
 		borderBottomLeftRadius: '6px',
@@ -39,7 +39,7 @@ const useStyles = theme => ({
 	},
 	menuButtonSelected: {
 		width: '100%',
-		height: '65px',
+		height: '55px',
 		marginLeft: '8px',
 		backgroundColor: 'white',
 		borderTopLeftRadius: '6px',
@@ -54,8 +54,6 @@ const useStyles = theme => ({
 		color: 'white'
 	}
 });
-
-
 
 class LeftNavigationBar extends React.Component {
 

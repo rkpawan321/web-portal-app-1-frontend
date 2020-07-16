@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { useMediaQuery } from '@material-ui/core';
 import RightContainer from './RightContainer';
 import byjusLogo from '../../../assets/logos/byjus-logo.png';
+import SecondHeader from './SecondHeader';
 
 const useStyles = theme => ({
 	customizeToolbar: {
@@ -79,6 +80,7 @@ function AppHeader(props) {
 						<RightContainer matches={matches} />
 					</div>
 				</Toolbar>
+				<SecondHeader />
 			</AppBar>
 		</div>
 	);

@@ -4,11 +4,9 @@ const useStyles = () => ({
     height: '(100vh - 70px)',
     backgroundColor: 'white',
     overflowY: 'hidden',
-    marginLeft: '70px',
+    marginLeft: '50px',
     padding: '20px',
   },
-  
-
   title1Container: {
     background: 'white',
     paddingTop: '16px',
