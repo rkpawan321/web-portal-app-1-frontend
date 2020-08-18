@@ -2,11 +2,7 @@
 
 Coding Challenge 
 
-Submitted By :
-
-Name :  Pawan R K
-
-Phone : +91 9482234279
+Author :  Pawan R K
 
 Mail: rkpawan321@gmail.com
 
